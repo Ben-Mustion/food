@@ -22,11 +22,16 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text>: null}
-      <Text>We have found {results.length} results</Text>
-      <ScrollView>
-        <ResultsList results={filterResultsByPrice('$')} title='Cost Effective' />
-        <ResultsList results={filterResultsByPrice('$$')} title='Bit Pricier' />
-        <ResultsList results={filterResultsByPrice('$$$')} title='Big Spender' />
+      <ScrollView> 
+        {filterResultsByPrice('$').length ? 
+          <ResultsList results={filterResultsByPrice('$')} title='Cheap Spots' /> 
+        : null }
+        {filterResultsByPrice('$$').length ? 
+          <ResultsList results={filterResultsByPrice('$$')} title='Reasonably Priced' />
+        : null }
+        {filterResultsByPrice('$$$').length ? 
+          <ResultsList results={filterResultsByPrice('$$$')} title='Big Spender' /> 
+        : null } 
       </ScrollView>
     </>
   );
