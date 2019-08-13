@@ -22,7 +22,7 @@ const ResultsShowScreen = ({ navigation }) => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView> 
       <Text style={styles.text}>{result.name}</Text>
       <FlatList 
         showsVerticalScrollIndicator={false}
