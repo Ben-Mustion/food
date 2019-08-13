@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { Text, StyleSheet, Image, ScrollView } from 'react-native';
 import yelp from '../api/yelp';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -22,7 +22,7 @@ const ResultsShowScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
+    <ScrollView>
       <Text style={styles.text}>{result.name}</Text>
       <FlatList 
         showsVerticalScrollIndicator={false}
@@ -32,7 +32,7 @@ const ResultsShowScreen = ({ navigation }) => {
           return <Image style={styles.image} source={{ uri: item }} />
         }}
       />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     width: 300,
     borderRadius: 5,
     marginBottom: 5,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    flexDirection: 'row'
   }
 });
 
